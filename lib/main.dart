@@ -1,4 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertaobao/ui/page/home/home_page.dart';
+import 'package:fluttertaobao/ui/page/weitao/weitao_page.dart';
+import 'package:fluttertaobao/ui/page/message/message_page.dart';
+import 'package:fluttertaobao/ui/page/shopping_cart/shopping_cart_page.dart';
+import 'package:fluttertaobao/ui/page/mine/mine_page.dart';
+import 'package:fluttertaobao/common/common_define.dart';
+import 'package:fluttertaobao/ui/theme/taobao_style.dart';
+import 'package:fluttertaobao/ui/page/home/home_page.dart';
+import 'package:fluttertaobao/ui/page/message/message_page.dart';
+import 'package:fluttertaobao/ui/page/weitao/weitao_page.dart';
+import 'package:fluttertaobao/ui/page/shopping_cart/shopping_cart_page.dart';
+import 'package:fluttertaobao/ui/page/mine/mine_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,7 +30,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: TaoBaoColors.primarySwatch,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -44,68 +56,143 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int _currentIndex = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+  BottomNavigationBar _buildBottomNavBar() {
+    return BottomNavigationBar(
+      currentIndex: _currentIndex,
+      type: BottomNavigationBarType.fixed,
+      items: [
+        BottomNavigationBarItem(
+            icon: Icon(
+              TaoBaoIcons.home,
+//              Icons.message,
+              color: _currentIndex == 0 ? _bottomNavigationActiveColor : _bottomNavigationColor,
+            ),
+            activeIcon: Icon(
+              TaoBaoIcons.home_active,
+              color: _currentIndex == 0 ? _bottomNavigationActiveColor : _bottomNavigationColor,
+              size: 34,
+            ),
+            title: _currentIndex == 0 ? Container() : _buildBarItemTitle('首页', 0)),
+        BottomNavigationBarItem(
+            icon: Icon(
+              TaoBaoIcons.we_tao,
+//                Icons.message,
+              color: _currentIndex == 1 ? _bottomNavigationActiveColor : _bottomNavigationColor,
+            ),
+            activeIcon: Icon(
+              TaoBaoIcons.we_tao_active,
+              color: _currentIndex == 1 ? _bottomNavigationActiveColor : _bottomNavigationColor,
+            ),
+            title: _buildBarItemTitle('微淘', 1)),
+        BottomNavigationBarItem(
+            icon: Icon(
+              TaoBaoIcons.message,
+//                Icons.message,
+              color: _currentIndex == 2 ? _bottomNavigationActiveColor : _bottomNavigationColor,
+            ),
+            activeIcon: Icon(
+              TaoBaoIcons.message_active,
+              color: _currentIndex == 2 ? _bottomNavigationActiveColor : _bottomNavigationColor,
+            ),
+            title: _buildBarItemTitle('消息', 2)),
+        BottomNavigationBarItem(
+            icon: Icon(
+              TaoBaoIcons.cart,
+//                Icons.message,
+              color: _currentIndex == 3 ? _bottomNavigationActiveColor : _bottomNavigationColor,
+            ),
+            activeIcon: Icon(
+              TaoBaoIcons.cart_active,
+              color: _currentIndex == 3 ? _bottomNavigationActiveColor : _bottomNavigationColor,
+            ),
+            title: _buildBarItemTitle('购物车', 3)),
+        BottomNavigationBarItem(
+            icon: Icon(
+              TaoBaoIcons.mine,
+//                Icons.message,
+              color: _currentIndex == 4 ? _bottomNavigationActiveColor : _bottomNavigationColor,
+            ),
+            activeIcon: Icon(
+              TaoBaoIcons.mine_active,
+              color: _currentIndex == 4 ? _bottomNavigationActiveColor : _bottomNavigationColor,
+            ),
+            title: _buildBarItemTitle('我的淘宝', 4)),
+      ],
+      onTap: (index){
+        setState(() {
+          _currentIndex = index;
+        });
+      },
+    );
+  }
+
+  Widget _buildBarItemTitle(String text, int index) {
+    return Text(
+      text,
+      style: TextStyle(
+          color: _currentIndex == index ? _bottomNavigationActiveColor : _bottomNavigationColor, fontSize: 12),
+    );
+  }
+
+  final _bottomNavigationColor = Color(0xFF585858);
+  Color _bottomNavigationActiveColor = Colors.blue;
+
+
+
+
+  Widget _buildBody() {
+    switch (_currentIndex) {
+      case 0:
+        {
+          return new HomePage();
+        }
+        break;
+      case 1:
+        {
+          return new WeiTaoPage();
+        }
+        break;
+      case 2:
+        {
+          return new MessagePage();
+        }
+        break;
+      case 3:
+        {
+          return new CartPage();
+        }
+        break;
+      case 4:
+        {
+          return new MinePage();
+        }
+        break;
+      default:
+        break;
+    }
+    return null;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+
+    _bottomNavigationActiveColor = Theme.of(context).primaryColor;
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+    return new Scaffold(
+      body: _buildBody(),
+      bottomNavigationBar: _buildBottomNavBar(),
     );
   }
 }
