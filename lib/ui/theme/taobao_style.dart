@@ -71,4 +71,9 @@ class TaoBaoIcons {
 
   static const IconData mine = const IconData(0xe78b, fontFamily: TaoBaoIcons.FONT_FAMILY);
   static const IconData mine_active = const IconData(0xe78c, fontFamily: TaoBaoIcons.FONT_FAMILY);
+
+  static const IconData search_light = const IconData(0xe7da, fontFamily: FONT_FAMILY);
+  static const IconData camera = const IconData(0xe665, fontFamily: FONT_FAMILY);
+  static const IconData scan = const IconData(0xe672, fontFamily: FONT_FAMILY);
+  static const IconData qr_code = const IconData(0xe6b0, fontFamily: FONT_FAMILY);
 }
