@@ -11,6 +11,7 @@ import 'package:fluttertaobao/ui/page/message/message_page.dart';
 import 'package:fluttertaobao/ui/page/weitao/weitao_page.dart';
 import 'package:fluttertaobao/ui/page/shopping_cart/shopping_cart_page.dart';
 import 'package:fluttertaobao/ui/page/mine/mine_page.dart';
+import 'package:fluttertaobao/common/utils/screen_util.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -146,27 +148,27 @@ class _MyHomePageState extends State<MyHomePage> {
     switch (_currentIndex) {
       case 0:
         {
-          return new HomePage();
+          return HomePage();
         }
         break;
       case 1:
         {
-          return new WeiTaoPage();
+          return WeiTaoPage();
         }
         break;
       case 2:
         {
-          return new MessagePage();
+          return MessagePage();
         }
         break;
       case 3:
         {
-          return new CartPage();
+          return CartPage();
         }
         break;
       case 4:
         {
-          return new MinePage();
+          return MinePage();
         }
         break;
       default:
@@ -190,6 +192,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.instance = ScreenUtil(width: 360)..init(context);
     return new Scaffold(
       body: _buildBody(),
       bottomNavigationBar: _buildBottomNavBar(),
