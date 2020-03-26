@@ -10,6 +10,8 @@ import 'package:fluttertaobao/common/data/home.dart';
 import 'package:fluttertaobao/ui/tools/arc_clipper.dart';
 import 'package:fluttertaobao/common/model/kingkong.dart';
 import 'package:fluttertaobao/ui/widget/menu.dart';
+import 'package:fluttertaobao/ui/widget/Recommand.dart';
+import 'package:fluttertaobao/common/model/command.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -57,6 +59,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin, Auto
   void initState() {
     super.initState();
 
+//    WidgetsBinding.instance.addPostFrameCallback((_){
+//      RenderBox renderBoxRed = context.findRenderObject();
+//      _sizeRed = renderBoxRed.size;
+//      setState(() {});
+//    });  这里如果直接使用context的话，只能够获得当前可视部分的size。需要通过globalKey获取真正的size！
+
     WidgetsBinding.instance.addPostFrameCallback(_afterLayout);
 
     kingKongItems = KingKongList.fromJson(menuDataJson['items']).items;
@@ -88,6 +96,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin, Auto
       children: <Widget>[
         _buildSwiperImageWidget(),
         _buildSwiperButtonWidget(),
+        _buildRecommendedCard(),
       ],
     );
 
@@ -107,7 +116,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin, Auto
                 children: <Widget>[v],
               ),
             ),
-            expandedHeight: (_sizeRed == null ? ScreenUtil.screenHeight : _sizeRed.height) + 50.0, // 这里_sizeRed 一直会为null？因为build的时机要早于回调
+            expandedHeight: _sizeRed.height + 50.0, // 这里_sizeRed 一直会为null？因为build的时机要早于回调
             bottom: PreferredSize(  // PreferredSize 是做什么?
               preferredSize: Size(double.infinity, 48),
               child: SWTabBarWidget(
@@ -134,6 +143,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin, Auto
           preferredSize: Size.fromHeight(0)),
       body: Column(
         children: <Widget>[
+          Offstage(  // 这个offstage很重要，用key: _keyFilter来获取home内容的整体高度，使之可以折叠
+            offstage: true,
+            child: Container(
+              child: v,
+              key: _keyFilter,
+            ),
+          ),
           SWTopBar(hintText: '宜家拉斯科推车'),
           Expanded(
             child: body,
@@ -242,10 +258,41 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin, Auto
     );
   }
 
+  Widget _buildRecommendedCard() {
+    return Padding(
+      padding: EdgeInsets.all(6.0),
+      child: Card(
+        shape:  RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(16.0)),
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: Padding(
+          padding: EdgeInsets.all(3.0),
+          child: Column(
+            children: <Widget>[
+              Stack(
+                children: <Widget>[
+                  RecommendFlow(commendData: CommandItemList.fromJson(recommendJson)),
+                ],
+              ),
+              Container(
+                width: ScreenUtil.screenWidth,
+                height: 0.6,
+                color: TaoBaoColors.mainBackgroundColor,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   _handleTabSelection() {
     print('_handleTabSelection:${_tabController.index}');
     setState(() {
       _currentIndex = _tabController.index;
     });
   }
+
+
 }

@@ -115,3 +115,159 @@ var menuDataJson = {
     },
   ]
 };
+
+var recommendJson = {
+  "title": "新品推荐",
+  'items': [
+    {
+      "bg_color": "#fcf8f4",
+      "jump_url": "",
+      "pic_url": "https://img.alicdn.com/tfs/TB1rCjhUyLaK1RjSZFxXXamPFXa-345-345.png_400x400Q50s50.jpg_.webp",
+      "subtitle": "抢100元卷",
+      "subtitle_color": "#fd4f51",
+      "tag_color": "#d8996f",
+      "title": "聚划算",
+      "title_color": "#333333"
+    },
+    {
+      "bg_color": "#fcf8f4",
+      "jump_url": "",
+      "pic_url": "https://img.alicdn.com/tfs/TB1Ekx_UwHqK1RjSZFkXXX.WFXa-345-297.png_400x400Q50s50.jpg_.webp",
+      "subtitle": "现金红包",
+      "subtitle_color": "#ff7525",
+      "tag_color": "#d8996f",
+      "tag_img": "",
+      "tag_mode": 1,
+      "tag_text": "",
+      "title": "",
+      "title_color": "#333333"
+    },
+    {
+      "bg_color": "#ffffff",
+      "jump_url": "",
+      "pic_url":
+      "https://img.alicdn.com/imgextra/i3/2459495011/TB28AUmDNGYBuNjy0FnXXX5lpXa_!!2459495011.png_400x400Q50s50.jpg_.webp",
+      "subtitle": "抢直播福利",
+      "subtitle_color": "#ff4d7c",
+      "tag_color": "#d8996f",
+      "title": "淘宝直播",
+      "title_color": "#333333"
+    },
+    {
+      "bg_color": "#ffffff",
+      "jump_url": "",
+      "pic_url":
+      "https://img.alicdn.com/imgextra/i2/6000000006286/TB2y0_SGxGYBuNjy0FnXXX5lpXa_!!6000000006286-2-at.png_440x440Q50s50.jpg_.webp",
+      "subtitle": "",
+      "subtitle_color": "#fd4f51",
+      "tag_color": "#d8996f",
+      "title": "",
+      "title_color": "#333333"
+    },
+    //
+    {
+      "bg_color": "#fcf8f4",
+      "jump_url": "",
+      "pic_url":
+      "https://img.alicdn.com/imgextra/i1/52660971/O1CN011J2l2EZDLLw1gsZ_!!52660971.png_400x400Q50s50.jpg_.webp",
+      "subtitle": "限时半价",
+      "subtitle_color": "#f8003d",
+      "tag_color": "#d8996f",
+      "title": "淘抢购",
+      "title_color": "#333333"
+    },
+    {
+      "bg_color": "#fcf8f4",
+      "jump_url": "",
+      "pic_url":
+      "https://img.alicdn.com/imgextra/i2/229042948/TB2f9PupqmWBuNjy1XaXXXCbXXa_!!229042948.png_400x400Q50s50.jpg_.webp",
+      "subtitle": "9.9包邮",
+      "subtitle_color": "#fd4e0e",
+      "tag_color": "#d8996f",
+      "tag_img": "",
+      "tag_mode": 1,
+      "tag_text": "",
+      "title": "天天特价",
+      "title_color": "#333333"
+    },
+    {
+      "bg_color": "#ffffff",
+      "jump_url": "",
+      "pic_url":
+      "https://img.alicdn.com/imgextra/i1/818931597/TB2POGYdQSWBuNjSszdXXbeSpXa_!!818931597.png_400x400Q50s50.jpg_.webp",
+      "subtitle": "发现世间好物",
+      "subtitle_color": "#56beff",
+      "tag_color": "#d8996f",
+      "title": "有好货",
+      "title_color": "#333333"
+    },
+    {
+      "bg_color": "#ffffff",
+      "jump_url": "",
+      "pic_url":
+      "https://img.alicdn.com/imgextra/i1/1014281128/O1CN01x1KqZr1KCfHMTYfEB_!!1014281128.png_400x400Q50s50.jpg_.webp",
+      "subtitle": "",
+      "subtitle_color": "#fd4f51",
+      "tag_color": "#d8996f",
+      "title": "",
+      "title_color": "#333333"
+    },
+    //
+    {
+      "bg_color": "#ffffff",
+      "jump_url": "",
+      "pic_url":
+      "https://img.alicdn.com/imgextra/i3/2695817590/O1CN01mJlWJA25wGcZYDdwk_!!2695817590.png_400x400Q50s50.jpg_.webp",
+      "subtitle": "挖深藏的店",
+      "subtitle_color": "#f8a507",
+      "tag_color": "#d8996f",
+      "title": "每日好店",
+      "title_color": "#333333"
+    },
+    {
+      "bg_color": "#ffffff",
+      "jump_url": "",
+      "pic_url":
+      "https://img.alicdn.com/imgextra/i1/420722466/O1CN011U5T9psOfc6QV8w_!!420722466.png_400x400Q50s50.jpg_.webp",
+      "subtitle": "",
+      "subtitle_color": "#fd4f51",
+      "tag_color": "#d8996f",
+      "tag_img": "",
+      "tag_mode": 1,
+      "tag_text": "",
+      "title": "",
+      "title_color": "#333333"
+    },
+    {
+      "bg_color": "#ffffff",
+      "jump_url": "",
+      "pic_url":
+      "https://img.alicdn.com/imgextra/i3/2090142745/O1CN01dnOm5n1W9FiYxo7JT_!!2090142745.png_400x400Q50s50.jpg_.webp",
+      "subtitle": "抢初夏必买",
+      "subtitle_color": "#fe5f08",
+      "tag_color": "#d8996f",
+      "title": "哇哦视频",
+      "title_color": "#333333"
+    },
+    {
+      "bg_color": "#ffffff",
+      "jump_url": "",
+      "pic_url":
+      "https://img.alicdn.com/imgextra/i4/619789678/TB2JWZrX9f8F1Jjy0FeXXallpXa_!!619789678.png_400x400Q50s50.jpg_.webp",
+      "subtitle": "",
+      "subtitle_color": "#fd4f51",
+      "tag_color": "#d8996f",
+      "title": "",
+      "title_color": "#333333"
+    },
+    //
+  ],
+};
+
+List headlines = [
+  'MT大白洗碗机测评：用了就再也回不去了',
+  '我与MT大白洗碗机的蜗居生活',
+  '太平洋电脑网每日早报，10月25日份，请查收',
+  '新版手机天猫上线！逛街时可以摇出红包！赶紧更新吧',
+  '天猫双11手机&配件预售会场满减大促'
+];
