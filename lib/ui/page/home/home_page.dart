@@ -143,7 +143,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin, Auto
           preferredSize: Size.fromHeight(0)),
       body: Column(
         children: <Widget>[
-          Offstage(  // 这个offstage很重要，用key: _keyFilter来获取home内容的整体高度，使之可以折叠
+          Offstage(  // 这个offstage很重要，用key: _keyFilter来获取home内容的整体高度_sizeRed，使之可以折叠
             offstage: true,
             child: Container(
               child: v,

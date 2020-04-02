@@ -76,4 +76,9 @@ class TaoBaoIcons {
   static const IconData camera = const IconData(0xe665, fontFamily: FONT_FAMILY);
   static const IconData scan = const IconData(0xe672, fontFamily: FONT_FAMILY);
   static const IconData qr_code = const IconData(0xe6b0, fontFamily: FONT_FAMILY);
+
+  static const IconData attention_light = const IconData(0xe7f4, fontFamily: FONT_FAMILY);
+  static const IconData attention_forbid = const IconData(0xe7b2, fontFamily: FONT_FAMILY);
+
+  static const IconData jump = const IconData(0xe670, fontFamily: FONT_FAMILY);
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:fluttertaobao/ui/theme/taobao_style.dart';
 import 'package:fluttertaobao/ui/widget/sw_search_card.dart';
+import 'package:fluttertaobao/common/utils/navigator_util.dart';
 
 class SWTopBar extends StatelessWidget {
   final String hintText;
@@ -50,7 +51,8 @@ class SWTopBar extends StatelessWidget {
             child: SWSearchCardWidget(
               elevation: 0,
               onTap: (){
-
+                FocusScope.of(context).requestFocus(FocusNode()); // 注意这个FocusNode是做什么用的，这样不会将焦点放置到输入框上
+                NavigatorUtils.gotoSearchGoodsPage(context);
               },
               hintText: hintText,
               textEditingController: _keywordTextEditingController,

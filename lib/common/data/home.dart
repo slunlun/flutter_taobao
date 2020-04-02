@@ -271,3 +271,15 @@ List headlines = [
   '新版手机天猫上线！逛街时可以摇出红包！赶紧更新吧',
   '天猫双11手机&配件预售会场满减大促'
 ];
+
+List<String> searchRecordTexts = [
+  'aoc4k显示器',
+  'lg4k显示器',
+  '菠萝',
+  'iphone xs',
+  '华为 p30',
+  '三星 手机',
+  'macbook pro 2018',
+  '拓展坞',
+  'dell xps15 9570',
+];
